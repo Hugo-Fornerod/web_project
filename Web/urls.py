@@ -19,4 +19,11 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('pages.urls')),  # Home y páginas
+    path('about/', include('pages.urls')),  # About
+    path('accounts/', include('accounts.urls')),  # Usuarios
+    path('messaging/', include('messaging.urls')),  # Mensajería
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
